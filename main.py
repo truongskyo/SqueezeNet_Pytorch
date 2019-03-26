@@ -261,5 +261,5 @@ if __name__ == '__main__':
         criterion = nn.CrossEntropyLoss()
         squeezenet_release.load_state_dict(torch.load('./checkpoint/{}.pth'.format('sq_custom_model'), map_location=device)) # load model from checkpoint
         summary(squeezenet_release, input_size=(3, 224, 224)) # summary model with parameters
-        # eval_model(squeezenet_release, criterion, dataloaders_dict, dataset_sizes) # evaluate the model
+        # eval_model(squeezenet_release, criterion, dataloaders_dict, dataset_sizes) # use it if you want to evaluate the model for all test set
         visualize_model(squeezenet_release, dataloaders_dict, num_images=20) #visualize model to compare between ground truth and predicted
