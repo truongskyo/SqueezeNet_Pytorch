@@ -225,8 +225,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs=25):
             if phase == 'val' and epoch_acc > best_acc:
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
-                for param_tensor in model.state_dict():
-                    torch.save(model.state_dict()[param_tensor], './checkpoint/{}.pth'.format('sq_custom_model'))
+                torch.save(model.state_dict(), './checkpoint/{}.pth'.format('sq_custom_model'))
             if phase == 'val':
                 val_acc_history.append(epoch_acc)
 
